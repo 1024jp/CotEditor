@@ -35,20 +35,20 @@
 
 ### Fixes
 
-- Fix an issue in the Find window where pinch zooming did not synchronize the text size between the find and replace fields.
+- Fix an issue where the app could crash when searching in a folder with a regular expression, such as `\n` or `\s`, if files had CRLF line endings.
+- Fix an issue in the file browser where read-only files in a writable folder could not be renamed and the Move to Trash command was unavailable for them.
+- Fix an issue in the file browser where the expansion state of folders was sometimes not restored from the last session.
+- Fix an issue where the document could remain uneditable after canceling Find All, Replace All, or Multiple Replace.
 - Fix an issue where Find All highlights remained in the document after closing the search results.
 - Fix several issues with the “Match only whole words” find option, such as not finding text that starts or ends with a symbol, like “#tag”, or text that contains a line ending.
-- Fix an issue where the document could remain uneditable after canceling Find All, Replace All, or Multiple Replace.
-- Fix an issue where the app could crash when searching in a folder with a regular expression, such as `\n` or `\s`, if files had CRLF line endings.
-- Fix an issue where the expansion state of folders in the file browser was sometimes not restored from the last session.
-- Fix an issue in the file browser where read-only files in a writable folder could not be renamed and the Move to Trash command was unavailable for them.
+- Fix an issue in the Find window where pinch zooming did not synchronize the text size between the find and replace fields.
 - Fix an issue where shortcuts using function keys, arrow keys, or other navigation keys could not be set in the Shortcuts and Snippets settings panes.
 - Fix an issue where Shift-Return could be assigned as a keyboard shortcut.
 - Fix an issue where a customized shortcut for a command no longer in the menu could remove the default shortcut of another menu command.
 - Fix an issue where moving insertion points during multi-cursor editing could behave incorrectly in right-to-left text or at the end of wrapped lines.
+- Fix an issue where the Shift Right command did not indent the last empty line during multi-cursor editing.
 - Fix an issue where selecting or deleting text by word or to the beginning of a line could affect an incorrect range or make the app unresponsive in bidirectional text.
 - Fix an issue where the “Convert Indentation” commands did not convert indentation that mixed spaces and tabs.
-- Fix an issue where the Shift Right command did not indent the last empty line during multi-cursor editing.
 - Fix an issue where pressing the Tab or Delete key when using spaces for indentation could insert or delete an incorrect number of spaces, such as after a tab character in the line or if the indentation was not a multiple of the indent width.
 - Fix an issue where the automatic outdent when typing a closing symbol, such as “}”, did not reach the indent level of the opening symbol if the indentation was not a multiple of the indent width or mixed spaces and tabs.
 - Fix an issue where trailing whitespace on the previous line was not automatically trimmed while the insertion point was at the beginning of the next line.
@@ -73,8 +73,6 @@
 - Fix several issues with outline item titles in tree-sitter-based syntaxes.
 - Fix an issue where typing after extending selections during multi-cursor editing could insert text at an incorrect location if an insertion point was already at the beginning of a line.
 - Fix an issue where inserting a snippet with line breaks could move the insertion point to an incorrect location or merge multiple insertion points into one if the document’s line endings were not LF.
-- Fix an issue where changing the line height setting did not update the lines displayed in open documents.
-- Fix an issue where text was positioned too high in lines with some fonts, such as Raanana.
 - Fix an issue where the AppleScript `line range` property of the selection could return incorrect lines, such as including the next line when the selection ended with a line ending.
 - Fix an issue where the “Refer to encoding declaration in document” option could garble documents that declared UTF-16 but were not saved in UTF-16.
 - Fix an issue where characters that could not be converted were saved as invalid bytes when saving a document in ASCII.
@@ -85,7 +83,6 @@
 - [trivial] Fix an issue where non-ASCII characters were lost without warning when saving a document in Non-lossy ASCII.
 - [trivial] Fix an issue where the app could crash while the Warnings inspector was open if the document contained certain sequences of emoji or decomposed Hangul characters that the current text encoding could not represent.
 - [trivial] Fix an issue where the app could crash when replacing text within selections with a regular expression containing `\R` if a selection ended in the middle of a CRLF line ending.
-- [trivial] Fix an issue where progress could be displayed incorrectly when searching or replacing text within selections.
 - [trivial] Fix an issue where the “Unescape replacement text” find option did not convert `\n` or `\t` followed by a combining mark.
 - [trivial] Fix an issue where searching with a regular expression or the “Distinguish characters strictly” find option could show the previous results after changing the find string to a canonically equivalent one.
 - [trivial] Fix an issue where Multiple Replace could not find text containing line endings if the document’s line endings were not LF.
@@ -98,6 +95,8 @@
 - [trivial] Fix an issue where the selection could move to an incorrect range when commenting out lines with block comment delimiters while only line endings were selected.
 - [trivial] Fix an issue where the selection after reversing, shuffling, or sorting lines by pattern did not include an empty line moved to the end.
 - [trivial] Fix an issue in the file browser where moving a symbolic link to a folder to the Trash also closed open documents in that folder.
+- [trivial] Fix an issue where progress could be displayed incorrectly when searching or replacing text within selections.
+- [trivial] Fix an issue where text was positioned too high in lines with some fonts, such as Raanana.
 
 
 ### Known Issues
